@@ -5,10 +5,9 @@
 
 ## function 'makeCacheMatrix' defines the get and set functions
 ## for the input matrix and its inverse 
-##
-## INPUT: a 'square' matrix (assumed 'invertible')
-## OUTPUT: list containing the 'get', 'set' functions
-##         for the original matrix and its inverse
+## -- INPUT:  a 'square' matrix (assumed 'invertible')
+## -- OUTPUT: list containing the 'get', 'set' functions
+##            for the original matrix and its inverse
 makeCacheMatrix <- function (matx = matrix()) {
         
         # initialize/purge variable for inverse
@@ -32,18 +31,17 @@ makeCacheMatrix <- function (matx = matrix()) {
         
         # return list of the get, set function pairs for
         # matrix & inverse matrix
-        list (setMat = setMat, getMat = getMat,
-              setInv = setInv, getInv = getInv)
+        return (list (setMat = setMat, getMat = getMat,
+                setInv = setInv, getInv = getInv))
 }
 
 ## function 'cacheSolve' returns the 'inverse' of the matrix
 ## either by calculating afresh or by retrieving from the cache
-## -- the first time 'cacheSolve is explicitly called on a
-## -- (assumptions: square, invertible) matrix, the 'inverse'
-## -- will be computed and set in the global cache for that matrix
-## 
-## INPUT: a 'square' matrix (assumed 'invertible') and 'optional' fields
-## OUTPUT: 'inverse' of the square matrix
+## - the first time 'cacheSolve is explicitly called on a
+## - (assumptions: square, invertible) matrix, the 'inverse'
+## - will be computed and set in the global cache for that matrix
+## -- INPUT:  'square' matrix (assumed 'invertible') and 'optional' fields
+## -- OUTPUT: 'inverse' of the square, invertible matrix
 cacheSolve <- function (matx, ...) {
         # attempt to retrieve cached inverse for 'matx' and
         # return 'matinv' (the inverse) if 'not' NULL ('inverse' exists)
