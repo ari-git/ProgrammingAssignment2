@@ -21,13 +21,19 @@ makeCacheMatrix <- function (matx = matrix()) {
                 matx <<- mat_new
                 inv <<- NULL
         }
-        getMat <- function () matx
+        getMat <- function () {
+                return (matx)
+        } 
         
         # set, get functions for inverse matrix
         # 'setInv': sets inverse (if not already set) in global cache
         # 'getInv': retrieves inverse (if already set) from global cache
-        setInv <- function (matinv) inv <<- matinv
-        getInv <- function () inv
+        setInv <- function (matinv){
+                inv <<- matinv
+        }
+        getInv <- function () {
+                return (inv)
+        }
         
         # return list of the get, set function pairs for
         # matrix & inverse matrix
